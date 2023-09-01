@@ -1,0 +1,55 @@
+﻿@model MovieDB.Models.Movie
+@{
+    ViewData["Title"] = "Edit Action";
+}
+<a asp-action="Index" class="btn btn-outline-secondary btn-sm">back to list</a>
+<hr />
+<h2 class="text-primary">Edit page</h2>
+<h4>@Html.DisplayFor(model => model.Title)</h4>
+<hr />
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="MovieID" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <h6><label class="control-label" asp-for="Title"></label></h6>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <h6><label class="control-label" asp-for="Genre"></label></h6>
+                <input asp-for="Genre" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <h6><label class="control-label" asp-for="DateOfRelease"></label></h6>
+                <input type="date" asp-for="DateOfRelease" class="form-control" />
+                <span asp-validation-for="DateOfRelease" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <h6><label class="control-label" asp-for="Price"></label></h6>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group text-center">
+        <input type="submit" value="Update" class="btn btn-primary" />
+    </div>
+</form>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
